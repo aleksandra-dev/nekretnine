@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<section class="wrapper">
+  <aside class="sidebar">
+      <div>
+          <div class="logo-wrapper">
+              <img src="../static/images/logo nekretnine.svg" alt="">
+          </div>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_kuce')}}
+                  > <i class="fa-solid fa-house mr-2"></i>Kuce</a
+                >
+              </li>
+              <li class="nav-item active-link">
+                <a class="nav-link" href={{url_for('render_stanovi')}}
+                > <i class="fa-solid fa-building mr-2"></i>Stanovi</a
+              >
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_lokali')}}
+                  ><i class="fa-solid fa-shop mr-2"></i>Lokali</a
+                >
+              </li>
+            </ul>
+            {% if role() == 'admin' %}
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_korisnici')}}
+                  > <i class="fa-solid fa-user mr-2"></i>Korisnici</a
+                >
+              </li>
+            </ul>
+              
+          
+        {% endif %} 
+      </div>
+
+    
+      
+      <form action={{url_for('logout')}} class="form-inline my-2 my-lg-0 logout">
+        <button type="submit" class=" logout-btn btn">
+           Odjavi se
+          <i class="fa-solid fa-right-from-bracket ml-3"></i>
+        </button>
+    </form>
+  </aside>
+
+  <div class="content" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="row ">
+      <form action={{ url_for('update_stan' , id=stan.id) }} method="POST" class="add-input">
+          
+        <label >Adresa</label>
+        <input type="text" value="{{stan.adresa}}" class="form-control" name="adresa" aria-label="adresa" />
+    
+        <label >Cena</label>
+         <input type="number" value="{{stan.cena}}" class="form-control" name="cena" aria-label="cena" />
+   
+        <label >Kvadratura</label>
+        <input type="number" value="{{stan.kvadratura}}" class="form-control" name="kvadratura" aria-label="kvadratura" />
+    
+        <label>Cena Po Kvadratu</label>
+        <input type="number" value="{{stan.cena_po_kvadratu}}" class="form-control" name="cena_po_kvadratu" aria-label="cena_po_kvadratu" />
+   
+        <label >Oglasavac</label>
+        <input type="text" value="{{stan.oglasavac}}" class="form-control" name="oglasavac" aria-label="oglasavac" />
+    
+
+        <label >Slika</label>
+        <input type="text" value="{{stan.slika}}" class="form-control" name="slika" aria-label="slika" />
+    
+        <label >Broj soba</label>
+        <input type="number" value="{{stan.broj_soba}}" class="form-control" name="broj_soba" aria-label="broj_soba" />
+          
+          <button type="submit" class="add-item-btn mt-2">Kreiraj</button>
+      </form>    
+  </div>
+           
+      
+  </div>
+</section>
+
+
+
+
+{% endblock %}

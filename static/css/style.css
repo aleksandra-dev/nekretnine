@@ -1,0 +1,244 @@
+/*
+svetla zelena: #82c882
+tamna: #446d4b 
+*/
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body,html{
+    height:100vh;
+}
+
+p{
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.wrapper{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+
+.sidebar{
+    width:20rem;
+    height:100%;
+    padding:2rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.content{
+    flex:1;
+    max-height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background-color: #F7FBE1;
+    padding: 0px 30px;
+}
+
+.logo-wrapper{
+    width:100%;
+    height:6rem;
+    margin-bottom:2rem;
+}
+
+.logo-wrapper img{
+    height:100%;
+    object-fit:cover;
+}
+
+.nav-item{
+    margin-bottom:0.5rem;
+    display:flex;
+    align-item:center;
+    padding:8px 10px;;
+    border-radius:5px;
+}
+
+.nav-item:hover{
+    cursor:pointer;
+    background: #81AE64;
+    transition: all 0.3s;
+}
+.nav-item a{
+    font-size:1rem;
+    color:#191A19;
+}
+
+.nav-item a i{
+    height: 2rem;
+    
+}
+
+.active-link{
+    background:#F7FBE1;
+}
+
+.logout{
+    width:100%
+}
+.logout-btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    background-color:#61B15A;
+    justify-content:center;
+    color:white;
+    
+}
+
+
+.logout-btn:hover{
+    background-color:#81AE64;
+    cursor:pointer;
+    color:white;
+}
+
+
+.add-stan-btn{
+    background-color: #82c882;
+    color:#FFF;
+    border-radius: 6px
+}
+
+.add-stan-btn:hover{
+    background-color: #81AE64;
+    color:white;
+    
+}
+
+.content-header{
+    width:100%;
+    height:4rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background-color:white;
+    padding:10px 20px;
+    margin:20px ;
+    position:sticky;
+    top:10px;
+    z-index:1;
+    box-shadow: -1px 12px 18px -6px rgba(168,168,168,0.4);
+}
+
+.card-title{
+    color:#446d4b;
+}
+
+.card-actions{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+}
+
+.action-btns{
+    display:flex;
+    align-items:center;
+}
+
+
+.a-btn{
+    background-color: #3d3d3d60 !important;
+    color:#191A19;
+    border: none;
+}
+
+.a-btn:hover{
+    background-color: #82c882 !important;
+}
+
+.delete-btn{
+    background-color:#EA5E5E !important;
+}
+
+.delete-btn:hover{
+    background-color:#E75151 !important;
+}
+.detail-btn{
+    background-color:#82c882;
+}
+
+.detail-btn:hover{
+    background-color:#81AE64;
+}
+
+.add-input{
+    width:30rem !important;
+}
+
+.add-item-btn{
+    width:30rem;
+    height:2.5rem;
+    border:none;
+    border-radius:5px;
+    background-color:#61B15A;
+    color:white;
+}
+
+.add-item-btn:hover{
+    
+    background-color:#81AE64;
+    cursor:pointer;
+    color:white;
+}
+
+.login-wrapper{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-item:center; 
+    justify-content:center;
+        overflow:hidden ;
+
+}
+
+.login-form-wrapper{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.login-form{
+    width:30rem;
+}
+
+.login-btn-wrapper{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.login-btn-main{
+    width:15rem;
+    background-color:#82c882;
+}
+
+.login-btn-main:hover{
+    cursor:pointer;
+    background-color:#81AE64;
+}
+
+
+.users-wrapper{
+        width:100% !important;
+        height:100%;
+
+}
+
+.new-user-wrapper{
+    display:flex;
+    flex-direction:column;
+    width:30rem;
+}

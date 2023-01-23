@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="wrapper">
+  <aside class="sidebar">
+      <div>
+          <div class="logo-wrapper">
+              <img src="../static/images/logo nekretnine.svg" alt="">
+          </div>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_kuce')}}
+                  > <i class="fa-solid fa-house mr-2"></i>Kuce</a
+                >
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_stanovi')}}
+                > <i class="fa-solid fa-building mr-2"></i>Stanovi</a
+              >
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_lokali')}}
+                  ><i class="fa-solid fa-shop mr-2"></i>Lokali</a
+                >
+              </li>
+            </ul>
+            {% if role() == 'admin' %}
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active-link">
+                <a class="nav-link" href={{url_for('render_korisnici')}}
+                  > <i class="fa-solid fa-user mr-2"></i>Korisnici</a
+                >
+              </li>
+            </ul>
+              
+          
+        {% endif %} 
+      </div>
+
+    
+      
+      <form action={{url_for('logout')}} class="form-inline my-2 my-lg-0 logout">
+        <button type="submit" class=" logout-btn btn">
+           Odjavi se
+          <i class="fa-solid fa-right-from-bracket ml-3"></i>
+        </button>
+    </form>
+  </aside>
+
+  <div class="content users-wrapper-content" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+   <div class="users-wrapper">
+    <div class="row my-5 justify-content-end">
+      <a href={{url_for('korisnik_novi') }} role="button" class="btn login-btn-main">
+          Dodaj korisnika
+      </a>
+  </div>
+    <div class="row">
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Ime</th>
+              <th scope="col">Prezime</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Rola</th>
+              <th scope="col">Akcija</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for korisnik in korisnici  %}
+            <tr>
+              <td>{{korisnik.first_name}}</td>
+              <td>{{korisnik.last_name}}</td>
+              <td>{{korisnik.email}}</td>
+              <td>{{korisnik.role}}</td>
+              <td class="row action-btns">
+                  <a href={{ url_for('korisnik_izmena' , id=korisnik.id) }} role="button" class="btn a-btn mx-3">
+                    <i class="fa-solid fa-pen"></i>
+                  </a>
+
+                  <form action={{ url_for("korisnik_brisanje" , id=korisnik.id) }} method="POST" class=" mx-1">
+                    <button class="btn a-btn delete-btn">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                  </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+  </div>
+   </div>
+           
+      
+  </div>
+</section>
+
+
+
+
+ {% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="wrapper">
+  <aside class="sidebar">
+      <div>
+          <div class="logo-wrapper">
+              <img src="../static/images/logo nekretnine.svg" alt="">
+          </div>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active-link">
+                <a class="nav-link" href={{url_for('render_kuce')}}
+                  > <i class="fa-solid fa-house mr-2"></i>Kuce</a
+                >
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_stanovi')}}
+                > <i class="fa-solid fa-building mr-2"></i>Stanovi</a
+              >
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_lokali')}}
+                  ><i class="fa-solid fa-shop mr-2"></i>Lokali</a
+                >
+              </li>
+            </ul>
+            {% if role() == 'admin' %}
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href={{url_for('render_korisnici')}}
+                  > <i class="fa-solid fa-user mr-2"></i>Korisnici</a
+                >
+              </li>
+            </ul>
+              
+          
+        {% endif %} 
+      </div>
+
+    
+      
+      <form action={{url_for('logout')}} class="form-inline my-2 my-lg-0 logout">
+        <button type="submit" class=" logout-btn btn">
+           Odjavi se
+          <i class="fa-solid fa-right-from-bracket ml-3"></i>
+        </button>
+    </form>
+  </aside>
+
+  <div class="content" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+      <div class="row mt-4">
+        <div class="card mb-4 mx-auto" style="width: 40%">
+          <img
+            class="card-img-top"
+            style="width: 100%; height: 20rem"
+            src="{{kuca.slika}}"
+            alt="Slika Stana"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{kuca.adresa}}</h5>
+            <p class="card-text"> <span class="font-weight-bold">Oglasavac:</span> {{kuca.oglasavac}}</p>
+            <p class="card-text"> <span class="font-weight-bold">Broj soba:</span> {{kuca.broj_soba}}</p>
+            <p class="card-text"> <span class="font-weight-bold">Kvadratura:</span> {{kuca.kvadratura}} ㎡</p>
+            <p class="card-text"> <span class="font-weight-bold">Cena po kvadratu:</span> {{kuca.cena_po_kvadratu}}  &euro;</p>
+            <p class="card-text"> <span class="font-weight-bold">Cena u eurima:</span> {{kuca.cena}}  &euro;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+           
+      
+  </div>
+</section>
+
+
+
+{% endblock %}

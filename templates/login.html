@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="login-wrapper">
+  <div class="row justify-content-center ">
+    <img src="/static/images/logo nekretnine.svg" />
+  </div>
+
+  <div class="login-form-wrapper mt-4">
+    <form action={{ url_for("render_login")}} method="POST" class="login-form">
+      <div class="form-group">
+        <label>Email adresa</label>
+        <input type="email" name="email" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label>Lozinka</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="login-btn-wrapper">
+        <input
+        type="submit"
+        class="btn login-btn-main"
+        role="button"
+        value="Prijavi se"
+      />
+      </div>
+      
+    </form>
+    
+  </div>
+     
+   
+</div>
+
+{% endblock %}
